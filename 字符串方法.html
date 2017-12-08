@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var str=" _a_ aj)_ jk_d _ksj";
+    console.log('查找位置');
+    console.log(str.indexOf('j'));
+    console.log(str.lastIndexOf('j'));
+    console.log(str);
+
+    console.log('去空格');
+    console.log(str.trim());
+    console.log(str);
+
+
+    console.log('大小写');
+    console.log(str.toUpperCase());
+    console.log(str.toLowerCase());
+    console.log(str);
+
+
+    console.log('字符串拼接');
+    console.log(str+str);
+    console.log(str);
+
+
+    console.log('截取');
+    console.log(str.slice(2, 5));   //start,end
+    console.log(str.substring(2, 5));   //start,end
+    console.log(str.substr(2,5));   //start,length
+    console.log(str);
+
+
+    console.log('切割');
+    console.log(str.split('_'));
+    console.log(str);
+
+
+    console.log('替换');
+    console.log(str.replace('a','bb'));
+    console.log(str);
+
+    //split('-')在字符串中的-位置进行切割,如果字符串中没有该字符,则返回由原字符串组成的数组
+    var str ='sjhjjks';
+    var arr = str.split('-');
+    console.log(arr);
+
+</script>
+</body>
+</html>

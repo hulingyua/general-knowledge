@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<div>
+
+</div>
+<script>
+
+// 反转数组
+    var arr=[22,33,44,55];
+    var newArr=[];
+    for(var i = arr.length-1; i >=0 ;i--){
+        newArr.push(arr[i]);
+    }
+    console.log(newArr);
+
+//降序排列
+function bubbleSort(arr) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+      var flag = true;
+      for (var j = 0; j < i; j++) {
+        if (arr[j] < arr[j + 1]) {
+//          arr[j] = [arr[j + 1],arr[j+1] = arr[j]][0];
+          flag = false;
+          var tmp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = tmp;
+        }
+      }
+      if (flag) {
+        break;
+      }
+    }
+    return arr;
+  }
+  var arr = bubbleSort([9, 4, 5, 2, 3, 6, 7, 8]);
+  console.log(arr);
+
+  //求阶乘
+  function getJc(n){
+    var result = 1;
+    for(var i = 1 ; i <= n ; i++){
+      result *= i;
+    }
+    return result;
+  }
+  console.log(getJc(4));
+
+  //  2.求阶乘的和
+  function getSum(n){
+    var sum = 0;
+    var Jc = 1;
+    for(var i = 1;i <= n; i++){
+      Jc *= i;
+      sum += Jc;
+    }
+    return sum;
+  }
+  console.log(getSum(4));
+
+// 1-n的和
+function getSum(n){
+  if(n == 1){
+    return 1;
+  }
+  return getSum(n-1)+n;
+}
+console.log(getSum(4));
+
+// 按照指定格式输出日期
+var date = new Date();
+var year = date.getFullYear();
+var month = addZero(date.getMonth() + 1);
+var day = addZero(date.getDate());
+var week = date.getDay();
+var hours = addZero(date.getHours());
+var minutes = addZero(date.getMinutes());
+var seconds = addZero(date.getSeconds());
+switch (day){
+  case 0:
+    day = "日";
+    break;
+  case 1:
+    day = "一";
+    break;
+  case 2:
+    day = "二";
+    break;
+  case 3:
+    day = "三";
+    break;
+  case 4:
+    day = "四";
+    break;
+  case 5:
+    day = "五";
+    break;
+  case 6:
+    day = "六";
+    break;
+}
+
+document.querySelector('div').innerHTML = "今天是 " + year + " 年 " + month + " 月 " + day + " 日 " + hours +" : "+ minutes + " : " +  seconds;
+function addZero(n){
+  return n < 10 ? "0"+ n : n;
+}
+
+  //将[3, 6, 1, 5, 10, 2,11]从小到大排列
+var arr = [3, 6, 1, 5, 10, 2,11];
+var arr1 = arr.sort(function(a,b){
+  return a-b;
+});
+  console.log(arr);
+console.log(arr1);
+
+
+arr.sort(function(a,b){
+  return b-a;
+})
+console.log(arr);
+
+var arrNum = [11,55,33,44,215,214,12];
+var arrNum1=arrNum.sort();
+console.log(arrNum);
+console.log(arrNum1);
+
+// 将学生年龄从小到大排序
+  arr = [
+    {name:"张三",age : 18},
+    {name:"李四",age : 14},
+    {name:"王五",age : 20},
+    {name:"赵四",age : 19},
+    {name:"刘能",age : 21},
+    {name:"谢飞机",age : 30},
+    {name:"赵本山",age : 68},
+  ];
+
+  arr.sort(function(a,b){
+    return a.age - b.age;
+  })
+  console.log(arr);
+
+
+//日期转化成为时间戳
+  var date = new Date();
+  console.log((date.valueOf()));
+  console.log(Date.parse(date))
+
+  //数组拼接  concat
+  var arr = ['hah','heh',12,'hh'];
+  var arr2 = [{'name':"zs"},{'name':'ls'}];
+  var arrSum = arr.concat(arr2);
+  console.log(arrSum);
+  var arrSum2 = arr2.concat(arr);
+  console.log(arrSum2);
+
+  // 数组截取arr.slice(a,b);
+  var arr=['11','hehe',22,11,55,1,2,5,4,'dd'];
+  var newArr = arr.slice(2,4);  //截取下标从2到3的元素,组成的新的数组
+  console.log(newArr);
+  console.log(arr); //原数组不改变
+
+  //数组中删除元素 arr.splice(a,b,others);
+  //var arr=['11','hehe',22,11,55,1,2,5,4,'dd'];
+  var newArr = arr.splice(2,4); //从下标为2开始截取,截取长度为4,会在原数组中删除这些元素
+  console.log(newArr);  //[22,11,55,1]  剪切到的数组
+  console.log(arr);   //['11','hehe',2,5,4,'dd']  原数组发生改变
+
+  var newArr2 = arr.splice(3,0,'我','是','新','的');
+  console.log(newArr2);   // 在下标为3 的位置截取0个元素,并在把后面的元素插入到原来下表为3的元素前
+                          //[]截取到的是一个空数组
+  console.log(arr);       //['11','hehe',2,'dd','我','是','新','的',5,4,]
+
+
+
+  var arr = [4, 6, 7, 8, 3, 46, 8];
+  //从数组中截取一个新的数组[6,7,8,3],返回新的数组
+  //方法一
+  // var newArr = arr.splice(1,4);
+  // console.log(newArr);
+  //方法二
+  var newArr = arr.slice(1,5);
+  console.log(newArr);
+
+  //删除[6,7,8,3]和替换成[1,1,1]
+  arr.splice(1,4,1,1,1);
+  console.log(arr);
+  console.log(arr.lastIndexOf(2));
+
+
+  //filter
+  var arr=[11,22,33,44,55];
+  var filterArr = arr.filter(function(element,index,array) {
+    return element<40 && index >0;
+  });
+  console.log(filterArr);
+  console.log(arr);
+
+  //map
+  var mapArr = arr.map(function(element,index,array){
+    return element*2;
+  })
+  console.log(mapArr);
+
+  //forEach
+  arr.forEach(function(element,index,array){
+    console.log('我是第' + index +'个元素,我是' + element);
+  })
+
+  //some
+  var someArr = arr.some(function(element,index,array){
+    return element > 45;
+  })
+  console.log(someArr);
+
+
+  //every
+  var everyArr = arr.every(function(element,index,array){
+    return element < 60;
+  })
+  console.log(everyArr);
+
+  //清空数组
+  console.log(arr);
+  // arr.length=0;
+  // console.log(arr);
+  // arr.splice(0,arr.length);
+  // console.log(arr);
+  arr=[];
+  console.log(arr);
+
+  //数组练习
+   var arr = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"];
+  //1. 找到数组中第一个a出现的位置
+  //2. 找到数组中最后一个a出现的位置
+  //3. 找到数组中每一个a出现的位置
+  //4. 数组去重，返回一个新数组
+  //5. 获取数组中每个元素出现的次数
+  console.log('a第一次出现的位置');
+  console.log(arr.indexOf('a'));
+
+  console.log("a最后一次出现的位置");
+  console.log(arr.lastIndexOf('a'));
+
+
+  console.log('a出现的每一个位置');
+  var indexArr=[];
+  arr.forEach(function(element,index){
+    if(element == 'a'){
+      indexArr.push(index);
+    }
+  });
+  console.log(indexArr);
+
+  console.log('去重之后返回的新数组');
+  var newArr=[];
+  arr.forEach(function(element,index){
+    if(newArr.indexOf(element) == -1){
+      newArr.push(element);
+    }
+    return newArr;
+  })
+  console.log(newArr);
+
+  console.log('每个元素出现的次数');
+  var everyPosition={};
+  arr.forEach(function(element,index){
+    if(everyPosition[element] == undefined){
+      everyPosition[element]=1;
+    }else{
+      everyPosition[element]++;
+    }
+  })
+  console.log(everyPosition);
+
+  //获取每个元素出现的次数
+  var obj={};
+  for(var i =0;i< arr.length;i++){
+    if(obj[arr[i]]==undefined){
+      obj[arr[i]] = 1;
+    }else{
+      obj[arr[i]]++;
+    }
+  }
+  console.log(obj);
+
+
+//将数组转化成为字符串join()如果不穿参数,默认用','隔开,传参则用参数隔开
+  var str = arr.join();
+  console.log(str);
+  var str2 = arr.join('-');
+  console.log(str2);
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var fullname='john Doe';
+        var obj={
+            fullname:'Colin lhrig',
+            pop:{
+                fullname:'Aurello',
+                getFullname(){
+                    return this.fullname;
+                }
+            }
+        }
+        console.log(obj.pop.getFullname()); //作为pop属性的方法调用的
+        var test = obj.pop.getFullname;     //将pop内的方法赋给test此时test= function (){              return this.fullname;}
+        console.log(test());
+
+        console.log('-------');
+        var name = 'world';
+        (function(){
+            //name会在function内变量提升\
+            //即var name;
+            if(typeof name === 'undefined'){
+                var name = 'Jack';
+                console.log('Goodbye' + name);
+            }else {
+                console.log('hello' + name);
+            }
+        })()
+
+        //沙箱
+        var haha=12;
+        (function(){
+            console.log(haha);
+        })();
+
+
+function (state, getters) {
+    function(id){
+    return state.todos.find(
+        function(todo) {
+     todo.id === id
+    }
+  }
+}
+    </script>
+</body>
+</html>
